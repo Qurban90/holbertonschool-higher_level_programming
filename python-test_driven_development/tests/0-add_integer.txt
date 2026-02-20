@@ -1,36 +1,53 @@
 The ``0-add_integer`` module
 ============================
 
-Using ``add_integer``
----------------------
-
 Importing the function:
-    >>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer = __import__('0-add_integer').add_integer
 
-Normal integers:
-    >>> add_integer(1, 2)
-    3
+Regular addition:
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
 
-Floats should be casted to integers:
-    >>> add_integer(100.3, -2)
-    98
+Integer casting (floats):
+>>> add_integer(100.3, -2)
+98
 
-Only one argument:
-    >>> add_integer(2)
-    100
+Missing one argument (b defaults to 98):
+>>> add_integer(2)
+100
 
-Strings should raise TypeError:
-    >>> add_integer(4, "School")
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
-Handling NaN and Infinity:
-    >>> add_integer(float('nan'))
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+Missing two arguments:
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
 
-    >>> add_integer(float('inf'), 5)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+Check type errors:
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+>>> add_integer("Holberton", 3)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Cannot convert float NaN to integer:
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Float overflow (Infinity):
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
