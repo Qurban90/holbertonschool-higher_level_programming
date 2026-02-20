@@ -24,3 +24,13 @@ Strings should raise TypeError:
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
+Handling NaN and Infinity:
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(float('inf'), 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
