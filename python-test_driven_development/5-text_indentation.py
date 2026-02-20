@@ -13,7 +13,7 @@ def text_indentation(text):
     of each printed line.
     """
     if not isinstance(text, str):
-        raise TypeError("text must be string")
+        raise TypeError("text must be a string")  # "a" əlavə edildi
 
     c = 0
     while c < len(text) and text[c] == ' ':
