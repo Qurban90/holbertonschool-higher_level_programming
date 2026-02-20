@@ -1,0 +1,26 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+---------------------
+
+Importing the function:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Normal integers:
+    >>> add_integer(1, 2)
+    3
+
+Floats should be casted to integers:
+    >>> add_integer(100.3, -2)
+    98
+
+Only one argument:
+    >>> add_integer(2)
+    100
+
+Strings should raise TypeError:
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
