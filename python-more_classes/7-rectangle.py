@@ -4,7 +4,7 @@
 
 class Rectangle:
     """Class that represents a rectangle."""
-
+ı
     number_of_instances = 0
     print_symbol = "#"
 
@@ -53,8 +53,17 @@ class Rectangle:
         return (self.__width * 2) + (self.__height * 2)
 
     def __str__(self):
-        """Returns string representation with print_symbol."""
+        """Returns string representation using print_symbol."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        rect_lines = []
-        for i in range(self.__height):
+        line = str(self.print_symbol) * self.__width
+        return "\n".join([line for _ in range(self.__height)])
+
+    def __repr__(self):
+        """Returns formal string representation."""
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """Decrement counter and print message on deletion."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
