@@ -12,14 +12,10 @@ if __name__ == "__main__":
         ),
         pool_pre_ping=True
     )
-    
     Session = sessionmaker(bind=engine)
     session = Session()
-    
     states = session.query(State).filter(State.name.contains('a'))\
                     .order_by(State.id).all()
-    
     for state in states:
         print("{}: {}".format(state.id, state.name))
-        
     session.close()
